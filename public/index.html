@@ -2,36 +2,121 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ben</title>
-<meta name="description" content="Ben 的个人主页">
-<style>
-  :root { --bg:#fafaf9; --fg:#1c1917; --muted:#78716c; --card:#fff; --line:#e7e5e4; --accent:#f97316; }
-  @media (prefers-color-scheme: dark) { :root { --bg:#0c0a09; --fg:#f5f5f4; --muted:#a8a29e; --card:#1c1917; --line:#292524; } }
-  * { box-sizing:border-box; margin:0; padding:0; }
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", sans-serif;
-         background:var(--bg); color:var(--fg); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; }
-  main { width:100%; max-width:520px; text-align:center; }
-  .avatar { width:96px; height:96px; border-radius:50%; margin:0 auto 20px; display:block; border:3px solid var(--line); }
-  h1 { font-size:2rem; letter-spacing:-.02em; }
-  p.bio { color:var(--muted); margin:10px 0 28px; line-height:1.6; }
-  nav { display:flex; flex-direction:column; gap:12px; }
-  nav a { display:block; padding:14px 18px; border:1px solid var(--line); border-radius:12px; background:var(--card);
-          color:var(--fg); text-decoration:none; font-weight:500; transition:border-color .15s, transform .15s; }
-  nav a:hover { border-color:var(--accent); transform:translateY(-1px); }
-  footer { margin-top:36px; color:var(--muted); font-size:.85rem; }
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ben · 个人主页</title>
+<meta name="description" content="Ben 的个人主页：你好，我是 Ben。武汉理工大学，坐标中国武汉。">
+<meta name="author" content="Ben">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0c0a09" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Ben · 个人主页">
+<meta property="og:description" content="你好，我是 Ben。这里是我的个人主页。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ben-home.wangben1113.workers.dev/">
+<meta property="og:image" content="https://ben-home.wangben1113.workers.dev/avatar.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23fb923c'/%3E%3Cstop offset='1' stop-color='%23e11d48'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='system-ui,sans-serif' font-size='36' font-weight='800' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+
 <main>
-  <img class="avatar" src="https://github.com/benson1137.png" alt="Ben 的头像">
-  <h1>Ben</h1>
-  <p class="bio">你好，我是 Ben。这里是我的个人主页。</p>
-  <nav>
-    <a href="https://github.com/benson1137" target="_blank" rel="noopener">GitHub · benson1137</a>
-  </nav>
-  <footer>© <span id="y"></span> Ben</footer>
+  <section class="hero" aria-labelledby="name">
+    <div class="avatar-wrap in" style="--i:0">
+      <div class="avatar-ring" aria-hidden="true"></div>
+      <img class="avatar" src="/avatar.jpg" alt="Ben 的头像" width="120" height="120" decoding="async"
+           onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+      <span class="avatar-fallback" hidden aria-hidden="true">B</span>
+    </div>
+
+    <p class="hello in" style="--i:1">👋 Hi there</p>
+    <h1 id="name" class="in" style="--i:2"><span class="grad">Ben</span></h1>
+
+    <p class="tagline in" style="--i:3">
+      <span class="sr-only">Completely not good at coding.</span>
+      <span id="typed" aria-hidden="true">Completely not good at coding.</span><span class="caret" aria-hidden="true"></span>
+    </p>
+
+    <p class="bio in" style="--i:4">你好，我是 Ben。这里是我的个人主页。</p>
+
+    <ul class="chips in" style="--i:5" aria-label="基本信息">
+      <li>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-7 9.2V16c0 1.7 3.1 4 7 4s7-2.3 7-4v-3.8l-7 3.8-7-3.8z"/></svg>
+        武汉理工大学
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+        中国 · 武汉
+      </li>
+    </ul>
+
+    <nav class="links in" style="--i:6" aria-label="链接">
+      <a class="btn glow" href="https://github.com/benson1137" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>
+        <span>GitHub · benson1137</span>
+        <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </nav>
+
+    <a class="scroll-hint in" style="--i:7" href="#repos" aria-label="查看公开仓库">
+      <span></span>
+    </a>
+  </section>
+
+  <section id="repos" class="repos" aria-labelledby="repos-title">
+    <header class="section-head reveal">
+      <h2 id="repos-title">公开仓库</h2>
+      <p>来自 GitHub 的部分公开项目</p>
+    </header>
+
+    <div class="grid">
+      <a class="card reveal tilt" href="https://github.com/benson1137/crypto-msgflow" target="_blank" rel="noopener">
+        <div class="card-top">
+          <svg class="repo-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.71 1.71.75.75 0 0 1-1.06 1.06A2.49 2.49 0 0 1 2 11.5v-9zm10.5-1h-8a1 1 0 0 0-1 1v6.71A2.5 2.5 0 0 1 4.5 9h8V1.5z"/></svg>
+          <h3>crypto-msgflow</h3>
+        </div>
+        <p>加密货币消息面采集系统。cron 驱动的哑进程把宏观、拥挤度、新闻、社交、财报日历采进 DuckDB，供分析层只读消费。</p>
+        <span class="lang"><i style="--c:#3572A5"></i>Python</span>
+      </a>
+
+      <a class="card reveal tilt" href="https://github.com/benson1137/agent-skills" target="_blank" rel="noopener">
+        <div class="card-top">
+          <svg class="repo-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.71 1.71.75.75 0 0 1-1.06 1.06A2.49 2.49 0 0 1 2 11.5v-9zm10.5-1h-8a1 1 0 0 0-1 1v6.71A2.5 2.5 0 0 1 4.5 9h8V1.5z"/></svg>
+          <h3>agent-skills</h3>
+        </div>
+        <p>Agent skills</p>
+        <span class="lang"><i style="--c:#3572A5"></i>Python</span>
+      </a>
+
+      <a class="card reveal tilt" href="https://github.com/benson1137/ben-home" target="_blank" rel="noopener">
+        <div class="card-top">
+          <svg class="repo-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.71 1.71.75.75 0 0 1-1.06 1.06A2.49 2.49 0 0 1 2 11.5v-9zm10.5-1h-8a1 1 0 0 0-1 1v6.71A2.5 2.5 0 0 1 4.5 9h8V1.5z"/></svg>
+          <h3>ben-home</h3>
+        </div>
+        <p>Ben 的个人主页，部署在 Cloudflare Workers</p>
+        <span class="lang"><i style="--c:#e34c26"></i>HTML</span>
+      </a>
+
+      <a class="card reveal tilt" href="https://github.com/benson1137/autorefresher" target="_blank" rel="noopener">
+        <div class="card-top">
+          <svg class="repo-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.71 1.71.75.75 0 0 1-1.06 1.06A2.49 2.49 0 0 1 2 11.5v-9zm10.5-1h-8a1 1 0 0 0-1 1v6.71A2.5 2.5 0 0 1 4.5 9h8V1.5z"/></svg>
+          <h3>autorefresher</h3>
+        </div>
+        <p class="muted">暂无描述</p>
+        <span class="lang"><i style="--c:#3572A5"></i>Python</span>
+      </a>
+    </div>
+
+    <p class="more reveal">
+      <a href="https://github.com/benson1137?tab=repositories" target="_blank" rel="noopener">查看全部仓库 →</a>
+    </p>
+  </section>
 </main>
-<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+<footer class="reveal">© <span id="y">2026</span> Ben</footer>
+
+<script src="/main.js" defer></script>
 </body>
 </html>
