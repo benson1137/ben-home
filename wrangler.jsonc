@@ -1,0 +1,7 @@
+{
+  "name": "ben-home",
+  "compatibility_date": "2026-09-30",
+  "account_id": "26587f8a939e4f9d29b6fbdc1bb4feaa",
+  "assets": { "directory": "./public" },
+  "workers_dev": true
+}
